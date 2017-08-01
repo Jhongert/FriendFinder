@@ -18,6 +18,7 @@ router.post('/friends', function(req, res){
 
 	//console.log(req.body);
 
+	
 	for(var i = 0; i < friends.data.length; i++){
 		var difference = 0;
 		
