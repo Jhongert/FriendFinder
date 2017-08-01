@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<title>Friend Finder</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+
+		<style type="text/css">
+			.container {max-width: 960px}
+			.question {margin-bottom: 40px;}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="page-header">
+					 	<h1>Survey Questions</h1>
+					</div>
+					<p class="text-danger">Please fill in all the fields.</p>
+					<form method="post" action="">
+						<div class="form-group">
+							<label for="name">Name</label>
+							<input id="name" class="form-control" type="text" name="name">
+						</div>
+						<div class="form-group">
+							<label for="photo">Link to your Photo</label>
+							<input id="photo" class="form-control" type="text" name="photo">
+						</div>
+						<div class="question">
+							<p>I do more than what's expected of me.</p>
+							<select class="form-control">
+						 		<option value=""></option>
+					            <option value="1">1 (Strongly Disagree)</option>
+					            <option value="2">2</option>
+					            <option value="3">3</option>
+					            <option value="4">4</option>
+					            <option value="5">5 (Strongly Agree)</option>
+					      	</select>
+						</div>
+						<div class="question">
+							<p>I prefer to stick with things that I know.</p>
+							<select class="form-control">
+						 		<option value=""></option>
+					            <option value="1">1 (Strongly Disagree)</option>
+					            <option value="2">2</option>
+					            <option value="3">3</option>
+					            <option value="4">4</option>
+					            <option value="5">5 (Strongly Agree)</option>
+					      	</select>
+						</div>
+						<div class="question">
+							<p>I believe that I am better than others.</p>
+							<select class="form-control">
+						 		<option value=""></option>
+					            <option value="1">1 (Strongly Disagree)</option>
+					            <option value="2">2</option>
+					            <option value="3">3</option>
+					            <option value="4">4</option>
+					            <option value="5">5 (Strongly Agree)</option>
+					      	</select>
+						</div>
+						<div class="question">
+							<p>I am always busy - always on the go.</p>
+							<select class="form-control">
+						 		<option value=""></option>
+					            <option value="1">1 (Strongly Disagree)</option>
+					            <option value="2">2</option>
+					            <option value="3">3</option>
+					            <option value="4">4</option>
+					            <option value="5">5 (Strongly Agree)</option>
+					      	</select>
+						</div>
+						<div class="question">
+							<p>I find it difficult to approach others.</p>
+							<select class="form-control">
+						 		<option value=""></option>
+					            <option value="1">1 (Strongly Disagree)</option>
+					            <option value="2">2</option>
+					            <option value="3">3</option>
+					            <option value="4">4</option>
+					            <option value="5">5 (Strongly Agree)</option>
+					      	</select>
+						</div>
+						<div class="question">
+							<p>I keep my promises.</p>
+							<select class="form-control">
+						 		<option value=""></option>
+					            <option value="1">1 (Strongly Disagree)</option>
+					            <option value="2">2</option>
+					            <option value="3">3</option>
+					            <option value="4">4</option>
+					            <option value="5">5 (Strongly Agree)</option>
+					      	</select>
+						</div>
+						<div class="question">
+							<p>I love to help others.</p>
+							<select  class="form-control">
+						 		<option value=""></option>
+					            <option value="1">1 (Strongly Disagree)</option>
+					            <option value="2">2</option>
+					            <option value="3">3</option>
+					            <option value="4">4</option>
+					            <option value="5">5 (Strongly Agree)</option>
+					      	</select>
+						</div>
+						<div class="question">
+							<p>I use and manipulate others to get my own way.</p>
+							<select class="form-control">
+						 		<option value=""></option>
+					            <option value="1">1 (Strongly Disagree)</option>
+					            <option value="2">2</option>
+					            <option value="3">3</option>
+					            <option value="4">4</option>
+					            <option value="5">5 (Strongly Agree)</option>
+					      	</select>
+						</div>
+						<div class="question">
+							<p>I really enjoy large parties and gatherings.</p>
+							<select class="form-control">
+						 		<option value=""></option>
+					            <option value="1">1 (Strongly Disagree)</option>
+					            <option value="2">2</option>
+					            <option value="3">3</option>
+					            <option value="4">4</option>
+					            <option value="5">5 (Strongly Agree)</option>
+					      	</select>
+						</div>
+						<div class="question">
+							<p>I complete tasks successfully.</p>
+							<select class="form-control">
+						 		<option value=""></option>
+					            <option value="1">1 (Strongly Disagree)</option>
+					            <option value="2">2</option>
+					            <option value="3">3</option>
+					            <option value="4">4</option>
+					            <option value="5">5 (Strongly Agree)</option>
+					      	</select>
+						</div>
+					</form>
+					<p><a href="#" class="btn btn-primary btn-lg active" role="button" id="submit"><span class="glyphicon glyphicon-send"></span> Submit survey</a></p>
+				</div>
+
+				<div class="modal fade" tabindex="-1" id="modalBox" role="dialog">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h4 class="modal-title">Best Match</h4>
+				      </div>
+				      <div class="modal-body">
+				        <h2 id="friend-name"></h2>
+				        <img id="friend-photo" src="">
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				      </div>
+				    </div><!-- /.modal-content -->
+				  </div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+
+			</div>
+		</div>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			
+
+			$(document).ready(function(){
+				//Function to validate inputs fields
+				function validate(){
+					$('.form-control').each(function(){
+						if($(this).val().trim() == ""){
+							$(this).after('<p class="text-danger">This field can\'t be empty.</p>');
+							return false;
+						}
+					});
+					return true;
+				}
+
+				//Submit on click
+				$('#submit').click(function(e){
+					$(".error").remove(); //Remove all error messages
+
+					//Validate the form
+					if(validate()){
+						//if the form is valid
+						//create an object with the inputs values
+						var data = {
+							name : $('#name').val().trim(),
+							photo : $('#photo').val().trim(),
+							scores : []
+						};
+
+						//loop through all selects elements to get the value and push it to scores array
+						$('select').each(function(){
+							data.scores.push(parseInt($(this).val()));
+							//data.scores.push($(this).val());
+						});
+
+						//console.log(data);
+
+						//get hostname and port number of the URL
+						var currentURL = window.location.origin;
+
+						//post request
+						$.post(currentURL + "/api/friends",data, function(res){
+							if(res){
+								$('#friend-name').text(res.name);
+								$('#friend-photo').attr('src', res.photo);
+								$('#modalBox').modal();
+							}
+				    	});
+
+						//reset the form
+				    	$('form')[0].reset();
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
