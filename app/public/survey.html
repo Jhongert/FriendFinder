@@ -1,33 +1,36 @@
 <!doctype html>
 <html lang="es">
 	<head>
-		<title>Friend Finder</title>
+		<title>Friend Finder | Survey</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
-
-		<style type="text/css">
-			.container {max-width: 960px}
-			.question {margin-bottom: 40px;}
-		</style>
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		
 	</head>
 	<body>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
+
 					<div class="page-header">
 					 	<h1>Survey Questions</h1>
 					</div>
-					<p class="text-danger">Please fill in all the fields.</p>
+
+					<p class="text-warning">Please fill in all the fields.</p>
+
+					<!-- Form -->
 					<form method="post" action="">
 						<div class="form-group">
 							<label for="name">Name</label>
 							<input id="name" class="form-control" type="text" name="name">
 						</div>
+
 						<div class="form-group">
 							<label for="photo">Link to your Photo</label>
 							<input id="photo" class="form-control" type="text" name="photo">
 						</div>
+
 						<div class="question">
 							<p>I do more than what's expected of me.</p>
 							<select class="form-control">
@@ -139,85 +142,40 @@
 					      	</select>
 						</div>
 					</form>
-					<p><a href="#" class="btn btn-primary btn-lg active" role="button" id="submit"><span class="glyphicon glyphicon-send"></span> Submit survey</a></p>
+
+					<div>
+						<button class="btn btn-primary btn-lg active" role="button" id="submit"><span class="glyphicon glyphicon-send"></span> Submit survey</button>
+					</div>
+
+					<footer>
+						<div class="container">
+							<p><a href="/api/friends">API Friends List</a></p>
+						</div>
+					</footer>
 				</div>
 
+				<!-- Modal box -->
 				<div class="modal fade" tabindex="-1" id="modalBox" role="dialog">
-				  <div class="modal-dialog" role="document">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				        <h4 class="modal-title">Best Match</h4>
-				      </div>
-				      <div class="modal-body">
-				        <h2 id="friend-name"></h2>
-				        <img id="friend-photo" src="">
-				      </div>
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				      </div>
-				    </div><!-- /.modal-content -->
-				  </div><!-- /.modal-dialog -->
+				  	<div class="modal-dialog" role="document">
+				    	<div class="modal-content">
+				      		<div class="modal-header">
+				        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        		<h4 class="modal-title">Best Match</h4>
+				      		</div>
+				      		<div class="modal-body">
+				        		<h2 id="friend-name"></h2>
+				        		<img id="friend-photo" src="">
+				      		</div>
+				      		<div class="modal-footer">
+				        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				      		</div>
+				    	</div><!-- /.modal-content -->
+				  	</div><!-- /.modal-dialog -->
 				</div><!-- /.modal -->
-
 			</div>
 		</div>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script type="text/javascript">
-			
-
-			$(document).ready(function(){
-				//Function to validate inputs fields
-				function validate(){
-					$('.form-control').each(function(){
-						if($(this).val().trim() == ""){
-							$(this).after('<p class="text-danger">This field can\'t be empty.</p>');
-							return false;
-						}
-					});
-					return true;
-				}
-
-				//Submit on click
-				$('#submit').click(function(e){
-					$(".error").remove(); //Remove all error messages
-
-					//Validate the form
-					if(validate()){
-						//if the form is valid
-						//create an object with the inputs values
-						var data = {
-							name : $('#name').val().trim(),
-							photo : $('#photo').val().trim(),
-							scores : []
-						};
-
-						//loop through all selects elements to get the value and push it to scores array
-						$('select').each(function(){
-							data.scores.push(parseInt($(this).val()));
-							//data.scores.push($(this).val());
-						});
-
-						//console.log(data);
-
-						//get hostname and port number of the URL
-						var currentURL = window.location.origin;
-
-						//post request
-						$.post(currentURL + "/api/friends",data, function(res){
-							if(res){
-								$('#friend-name').text(res.name);
-								$('#friend-photo').attr('src', res.photo);
-								$('#modalBox').modal();
-							}
-				    	});
-
-						//reset the form
-				    	$('form')[0].reset();
-					}
-				});
-			});
-		</script>
+		<script type="text/javascript" src="/js/survey.js"></script>
 	</body>
 </html>

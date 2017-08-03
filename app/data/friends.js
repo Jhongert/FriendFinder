@@ -33,19 +33,19 @@
             ]
         },
         {
-            "name": "jhongert",
-            "photo": "http://norapc.org/wp-content/uploads/2015/07/avatar-blank.png",
+            "name": "test",
+            "photo": "https://www.hoplr.com/Images/defaultuser.jpg",
             "scores": [
-                "5",
-                "2",
-                "1",
-                "2",
-                "3",
-                "4",
-                "5",
-                "1",
-                "1",
-                "5"
+                2,
+                5,
+                2,
+                2,
+                2,
+                2,
+                3,
+                2,
+                2,
+                1
             ]
         }
     ]
